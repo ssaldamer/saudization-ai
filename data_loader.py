@@ -32,7 +32,7 @@ SURVEY_COLS = {
 DROP_COLS = ["Id", "Start time", "Completion time", "Email", "Name"]
 
 
-def load_survey(path="data/survey.csv"):
+def load_survey(path="survey.csv"):
     df = pd.read_csv(path)
     df = df.drop(columns=[c for c in DROP_COLS if c in df.columns], errors="ignore")
     reverse_map = {v: k for k, v in SURVEY_COLS.items()}
@@ -40,7 +40,7 @@ def load_survey(path="data/survey.csv"):
     return df
 
 
-def load_labor_market(path="data/labor_market.csv"):
+def load_labor_market(path="labor_market.csv"):
     """
     Your labor market CSV with Saudi vs non-Saudi percentages per sector.
     Expected columns: sector, saudi_pct, non_saudi_pct
